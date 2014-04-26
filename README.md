@@ -21,7 +21,7 @@ If you are using [browserify](http://browserify.org/), simply
 
 ```js
 var XHR = require('clusterfoo.url-helpers');
-var xhr = new XHR("some_url");
+var xhr = new XHR.handler("some_url");
 ```
 
 Please use browserify.
@@ -40,7 +40,7 @@ Please use browserify.
 This will make the `Clusterfoo.xhr` object available globally:
 
 ```js
-var xhr = new Clusterfoo.xhr("some_url");
+var xhr = new Clusterfoo.xhr.handler("some_url");
 ```
 
 ## API
@@ -48,7 +48,7 @@ var xhr = new Clusterfoo.xhr("some_url");
 First, you must initialize an XHR handler with a given url:
 
 ```js
-var xhr = new XHR("http://example.com");
+var xhr = new XHR.handler("http://example.com");
 ```
 
 #### xhr.post(path, body, fn)
