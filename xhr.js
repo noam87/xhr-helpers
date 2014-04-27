@@ -2,7 +2,7 @@
   var C = {};
   if (typeof Clusterfoo === "object") Clusterfoo.xhr = C;
 
-  // Namespace your shit, people.
+  // Namespace.
   //
   // Usage:
   //
