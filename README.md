@@ -56,7 +56,7 @@ var xhr = new XHR.handler("http://example.com");
 Post, with a callback function for handling respons:
 
 ```js
-xhr.post("/some/path", { name: "Noam" }, function(err, object){
+xhr.post("/some/path", { id: "123" }, function(err, object){
     if (err) freakOut();
     handleResponse(object);
 });
