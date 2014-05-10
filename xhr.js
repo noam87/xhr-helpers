@@ -1,17 +1,22 @@
 ;(function(window, exports) {
   var C = {};
-  if (typeof Clusterfoo === "object") Clusterfoo.xhr = C;
-
-  // Namespace.
-  //
-  // Usage:
-  //
-  // To initialize this  the user may call the `Clusterfoo()` function,
-  // which will make `Clusterfoo.cookies` available globally.
-  if (typeof window.Clusterfoo !== "object") {
-    window.Clusterfoo = function() {
-      window.Clusterfoo = {};
-      Clusterfoo.xhr = C;
+  
+  appendToNamespace("Clusterfoo", "xhr", C);
+  
+  function appendToNamespace(namespace, elementName, elementValue) {
+    if (typeof window[namespace] === "object") {
+      window[namespace][elementName] = elementValue;
+    }
+    var oldNamespaceFunction = function(){};
+    if (typeof window[namespace] == "function") {
+      oldNamespaceFunction = window[namespace];
+    }
+    if (typeof window[namespace] !== "object") {
+      window[namespace] = function() {
+        window[namespace] = {};
+        oldNamespaceFunction();
+        window[namespace][elementName] = elementValue;
+      }
     }
   }
 
