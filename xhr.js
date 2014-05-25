@@ -57,12 +57,9 @@
 
       req.onreadystatechange = function() {
         if (req.readyState == 4 && req.status == 200) {
-          var resObj = JSON.parse(req.responseText);
-          fn(null, resObj);
+          fn(null, req.responseText);
         } else if (req.readyState == 4) {
-          var res = req.response;
           var err = req.response;
-          if (isJsonString(res)) err = JSON.parse(res).error;
           fn(err);
         }
       }
